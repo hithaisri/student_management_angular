@@ -1,1 +1,56 @@
-<p>get-student works!</p>
+<div class="col-sm-10 offset-sm-1">
+    <div class="row sm-3">
+        <label for="inputEmail" class="col-sm-2 col-form-label">Enter Input</label>
+        <div class="col-sm-5">
+            <input type="number" class="form-control" [(ngModel)]=student.id placeholder="Enter Input"
+                aria-label="Enter Input">
+        </div>
+    </div>
+    <br>
+    <div class="row sm-3">
+        <div class="col-sm-2 offset-sm-1">
+            <button type="button" class="btn btn-success" (click)="searchById(student.id)">Search by Id</button>
+        </div>
+        <div class="col-sm-2 offset-sm-1">
+            <button type="button" class="btn btn-success" (click)="searchByGrade(student.id)">Search By Grade</button>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<table class="table table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Subjects</th>
+            <th scope="col">DOB</th>
+            <th scope="col">Grade</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr *ngFor="let s of studentList">
+            <td>
+                <span>{{s.id}}</span>
+            </td>
+            <td>
+                <span>{{s.firstName}}</span>
+            </td>
+            <td>
+                <span>{{s.lastName}}</span>
+            </td>
+            <td>
+                <span>{{s.subject}}</span>
+            </td>
+            <td>
+                <span>{{s.dob}}</span>
+            </td>
+            <td>
+                <span>{{s.grade}}</span>
+            </td>
+        </tr>
+    </tbody>
+
+</table>

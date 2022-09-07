@@ -1,39 +1,45 @@
 <table class="table table-striped">
-    <thead>
+    <thead class="table-dark">
         <tr>
-            <th scope="col">#</th>
+            <th scope="col">Id</th>
             <th scope="col">First Name</th>
             <th scope="col">Last Name</th>
             <th scope="col">Subjects</th>
             <th scope="col">DOB</th>
             <th scope="col">Grade</th>
+            <th scope="col">Actions</th>
         </tr>
     </thead>
     <tbody>
-        
-        <!--  <ol class="list-group list-group-numbered"> -->
-            
-          <!--  <li *ngFor="let s of students; index as i" class="list-group-item"> -->
-           for(let s as students) {
-            <tr>
-                    <td>
-                        <span>{{s.firstName}}</span>
-                    </td>
-                    <td>
-                        <span>{{s.lastName}}</span>
-                    </td>
-                    <td>
-                        <span>{{s.subject}}</span>
-                    </td>
-                    <td>
-                        <span>{{s.dob}}</span>
-                    </td>
-                    <td>
-                        <span>{{s.grade}}</span>
-                    </td>
-                </tr>
-            }
-    
-    </tbody>
 
+        <tr *ngFor="let s of students; index as i">
+            <td>
+                <span>{{s.id}}</span>
+            </td>
+            <td>
+                <span>{{s.firstName}}</span>
+            </td>
+            <td>
+                <span>{{s.lastName}}</span>
+            </td>
+            <td>
+                <span>{{s.subject}}</span>
+            </td>
+            <td>
+                <span>{{s.dob}}</span>
+            </td>
+            <td>
+                <span>{{s.grade}}</span>
+            </td>
+            <td>
+                <button (click)="deleteRow(s, i)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
 </table>
+
+
+<div class="col-sm-2">
+    <button type="button" class="btn btn-success" (click)="deleteAllRows()">Delete All Students</button>
+</div>
+

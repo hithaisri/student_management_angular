@@ -7,8 +7,9 @@ import { NavbarComponent } from './Components/navbar/navbar.component';
 import { AddStudentComponent } from './Components/add-student/add-student.component';
 import { GetAllStudentsComponent } from './Components/get-all-students/get-all-students.component';
 import { GetStudentComponent } from './Components/get-student/get-student.component';
-import { FormsModule } from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UpdateStudentComponent } from './Components/update-student/update-student.component';  
 
 @NgModule({
   declarations: [
@@ -16,13 +17,14 @@ import {HttpClientModule} from '@angular/common/http';
     NavbarComponent,
     AddStudentComponent,
     GetAllStudentsComponent,
-    GetStudentComponent
-  ],
+    GetStudentComponent,
+    UpdateStudentComponent  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

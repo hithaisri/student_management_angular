@@ -1,0 +1,70 @@
+<div class="container py-5 text-center tableclr">
+    <h3 class="text-center">Student Details</h3>
+    <table class="table table-success table-striped">
+        <thead>
+            <tr class="text-center text-uppercase">
+                <th>StudentId</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Student Class</th>
+                <th>Subject</th>
+                <th>Date of Birth</th>
+                <th>Edit Student Data</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let s of students; let j=index">
+                <td>{{s.id}}</td>
+                <td>{{s.firstName}}</td>
+                <td>{{s.lastName}}</td>
+                <td>{{s.grade}}</td>
+                <td>{{s.subject}}</td>
+                <td>{{s.dob}}</td>
+                <td><a class="btn btn-info" (click)="updateStudent(s,s.id)">Update</a></td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<br>
+
+<div class="container">
+
+    <label class="col-sm-2 col-form-label">Enter First Name</label>
+    <div class="col">
+        <input type="text" class="form-control" placeholder="First Name" [(ngModel)]=student.firstName>
+    </div>
+    <br>
+    <label class="col-sm-2 col-form-label">Enter Last Name</label>
+    <div class="col">
+        <input type="text" class="form-control" placeholder="Last Name" [(ngModel)]=student.lastName>
+    </div>
+    <br>
+    <label class="col-sm-2 col-form-label">Enter Grade</label>
+    <div class="col">
+        <input type="number" class="form-control" placeholder="Grade" [(ngModel)]=student.grade>
+    </div>
+    <br>
+    <label class="col-sm-2 col-form-label">Enter Date of birth</label>
+    <div class="col">
+        <input type="date" class="form-control" placeholder="Date of birth" [(ngModel)]=student.dob>
+    </div>
+    <br>
+    <label class="col-sm-2 col-form-label">Enter Subject</label>
+    <div class="col">
+        <input type="number" class="form-control" placeholder="subject" [(ngModel)]=student.subject>
+    </div>
+    <br>
+    <button class="btn btn-primary" type="button" (click)="update(student)">Update Student</button>
+
+</div>
+
+<br>
+
+
+
+
+
+

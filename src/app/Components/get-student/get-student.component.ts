@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import Student from 'src/app/Entity/Student';
+import { StudentService } from 'src/app/student.service';
 
 @Component({
   selector: 'app-get-student',
@@ -7,7 +9,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GetStudentComponent implements OnInit {
 
-  constructor() { }
+  studentList: Student[] = [];
+
+  student={
+    id:0,
+    firstName:'',
+    lastName:'',
+    subject:0,
+    dob:new Date(),
+    grade:0
+  };
+
+  searchById(sid:number){
+   this.studentService.searchById(sid).subscribe((response)=>{
+      console.log(response);
+      this.studentList=response as Student[];
+    })
+  }
+
+  searchByGrade(grade:number){
+    const promise = this.studentService.searchByGrade(grade);
+    promise.subscribe((response)=>{
+      console.log(response);
+      this.studentList=response as Student[];
+    })
+  }
+
+  constructor(public studentService:StudentService) { }
 
   ngOnInit(): void {
   }

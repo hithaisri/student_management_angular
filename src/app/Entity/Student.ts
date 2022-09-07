@@ -1,4 +1,5 @@
 export default class Student{
+    id:number=0;
     firstName:string="";
     lastName:string="";
     subject:number=0;

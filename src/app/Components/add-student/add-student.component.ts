@@ -19,11 +19,13 @@ users: Student[] = [];
     const observable = this.studentService.saveStudent(this.student);
     observable.subscribe(
       (response: any) => {
-        console.log(response);
+       console.log(response);
+       alert("Successfully added Student!");
+       window.location.reload();
       },
       function(error) {
         console.log(error);
-        alert("Something went wrong please try again!")
+        alert("Something went wrong please try again!");
       }
     )
   }
