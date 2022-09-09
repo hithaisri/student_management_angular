@@ -13,6 +13,14 @@ export class UpdateStudentComponent implements OnInit {
   student: Student = new Student();
   id: number = 0;
 
+  deleteAllRows() {
+    const observable = this.studentService.deleteAllStudents();
+    observable.subscribe((response) => {
+      console.log(response);
+      alert("All Students Deleted");
+      window.location.reload();
+    })
+  }
 
   updateStudent(st, j) {
 
@@ -48,8 +56,7 @@ export class UpdateStudentComponent implements OnInit {
     const promise = this.studentService.getStudents();
     promise.subscribe((response)=>{
       console.log(response);
-      this.students=response as Student[];
-      
+      this.students=response as Student[]; 
     })
   }
 

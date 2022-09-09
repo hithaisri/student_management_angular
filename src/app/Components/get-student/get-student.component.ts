@@ -9,7 +9,7 @@ import { StudentService } from 'src/app/student.service';
 })
 export class GetStudentComponent implements OnInit {
 
-  studentList: Student[] = [];
+  studentList: Student[]= [];
 
   student={
     id:0,
@@ -23,13 +23,16 @@ export class GetStudentComponent implements OnInit {
   searchById(sid:number){
    this.studentService.searchById(sid).subscribe((response)=>{
       console.log(response);
-      this.studentList=response as Student[];
+      this.studentList.splice(0);
+      this.student=response as Student;
+      this.studentList.push(this.student);
     })
   }
 
   searchByGrade(grade:number){
     const promise = this.studentService.searchByGrade(grade);
     promise.subscribe((response)=>{
+      this.studentList.splice(0);
       console.log(response);
       this.studentList=response as Student[];
     })
